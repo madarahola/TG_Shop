@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>  
+
+<!-- The telegram-web-app.js script provides:
+
+window.Telegram.WebApp → Telegram's built-in JavaScript API.
+tg.sendData(data) → Sends data from Mini App to the bot.
+tg.expand() → Expands the Mini App to full screen. -->
+
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; padding: 20px; }
+        button { padding: 10px 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Mini App</h1>
+    <p>Click the button to send data to the bot.</p>
+    <button onclick="sendDataToBot()">Send Data</button>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Makes the Mini App full-screen
+
+        function sendDataToBot() {
+            let data = { action: "buy", item: "Pizza", price: 10 };
+            tg.sendData(JSON.stringify(data)); // Sends data back to the bot
+        }
+    </script>
+</body>
+</html>
